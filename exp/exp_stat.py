@@ -1,4 +1,4 @@
-from data_provider.data_factory import data_provider
+from data.data_provider.data_factory import data_provider
 from exp.exp_basic import Exp_Basic
 from utils.tools import EarlyStopping, adjust_learning_rate, visual
 from utils.metrics import metric
@@ -12,7 +12,7 @@ import os
 import time
 import warnings
 import matplotlib.pyplot as plt
-from models.Stat_models import *
+from models.Stats.Stat_models import *
 
 warnings.filterwarnings('ignore')
 

@@ -1,1 +1,6 @@
 /data/dataset
+/checkpoints
+/logs
+/results
+/test_results
+/archive
