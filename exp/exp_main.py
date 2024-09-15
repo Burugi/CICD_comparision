@@ -1,7 +1,9 @@
+from models.RNN_based import SegRNN, VanillaRNN
 from data.data_provider.data_factory import data_provider
 from exp.exp_basic import Exp_Basic
-from models.Transformer_based import Informer, Autoformer, Transformer
+from models.Transformer_based import Informer, Autoformer, Transformer, PatchTST, Pyraformer
 from models.Linear_based import DLinear, Linear, NLinear
+from models.test import Crossformer
 from utils.tools import EarlyStopping, adjust_learning_rate, visual, test_params_flop
 from utils.metrics import metric
 
@@ -32,6 +34,11 @@ class Exp_Main(Exp_Basic):
             'DLinear': DLinear,
             'NLinear': NLinear,
             'Linear': Linear,
+            'SegRNN': SegRNN,
+            'PatchTST': PatchTST,
+            'Pyraformer': Pyraformer,
+            'Crossformer': Crossformer,
+            'VanillaRNN': VanillaRNN,
         }
         # 모델 선택
         model = model_dict[self.args.model].Model(self.args).float()

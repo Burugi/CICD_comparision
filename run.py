@@ -13,6 +13,8 @@ np.random.seed(fix_seed)
 parser = argparse.ArgumentParser(description='Autoformer & Transformer family for Time Series Forecasting')
 
 # basic config
+parser.add_argument('--task_name', type=str, required=True, default='long_term_forecast',
+                    help='task name, options:[long_term_forecast, short_term_forecast, imputation, classification, anomaly_detection]')
 parser.add_argument('--is_training', type=int, required=True, default=1, help='status')
 parser.add_argument('--train_only', type=bool, required=False, default=False, help='perform training on full input dataset without validation and testing')
 parser.add_argument('--model_id', type=str, required=True, default='test', help='model id')
@@ -60,11 +62,16 @@ parser.add_argument('--embed', type=str, default='timeF',
 parser.add_argument('--activation', type=str, default='gelu', help='activation')
 parser.add_argument('--output_attention', action='store_true', help='whether to output attention in ecoder')
 parser.add_argument('--do_predict', action='store_true', help='whether to predict unseen future data')
+# PatchTST & Crossformer
+parser.add_argument('--top_k', type=int, default=5, help='for TimesBlock')
 
 '''
 CNN, RNN based만 추가되면 된다
 '''
-
+# RNN
+parser.add_argument('--seg_len', type=int, default=48,
+                    help='the length of segmen-wise iteration of SegRNN')
+parser.add_argument('--rnn_type', default='gru', help='rnn_type')
 
 # optimization
 parser.add_argument('--num_workers', type=int, default=10, help='data loader num workers')
