@@ -4,6 +4,7 @@ seq_len=48
 pred_len=24
 
 python -u run.py \
+  --task_name long_term_forecast \
   --is_training 1 \
   --root_path ./data/dataset \
   --data_path traffic.csv \
@@ -20,10 +21,11 @@ python -u run.py \
   --dropout 0 \
   --learning_rate 0.001 \
   --des 'Exp' \
-  --itr 1 \
+  --itr 5 \
   --train_epochs 100 >logs/$model_name'_S_traffic_'$seq_len'_'$pred_len.log
 
 python -u run.py \
+  --task_name long_term_forecast \
   --is_training 1 \
   --root_path ./data/dataset \
   --data_path traffic.csv \
@@ -40,5 +42,5 @@ python -u run.py \
   --dropout 0 \
   --learning_rate 0.001 \
   --des 'Exp' \
-  --itr 1 \
+  --itr 5 \
   --train_epochs 100 >logs/$model_name'_MS_traffic_'$seq_len'_'$pred_len.log

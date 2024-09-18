@@ -22,7 +22,7 @@ python -u run.py \
   --learning_rate 0.001 \
   --rnn_type rnn \
   --des 'Exp' \
-  --itr 1 \
+  --itr 5 \
   --train_epochs 100 >logs/$model_name'_S_traffic_'$seq_len'_'$pred_len.log
 
 python -u run.py \
@@ -44,5 +44,5 @@ python -u run.py \
   --learning_rate 0.001 \
   --rnn_type rnn \
   --des 'Exp' \
-  --itr 1 \
+  --itr 5 \
   --train_epochs 100 >logs/$model_name'_MS_traffic_'$seq_len'_'$pred_len.log

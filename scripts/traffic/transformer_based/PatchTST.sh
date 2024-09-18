@@ -25,8 +25,8 @@ do  python -u run.py \
     --d_ff 512 \
     --top_k 5 \
     --des 'Exp' \
-    --itr 1 \
-    --train_epochs 10 >logs/$model_name'_MS_traffic_'$seq_len'_'$pred_len.log
+    --itr 5 \
+    --train_epochs 100 >logs/$model_name'_MS_traffic_'$seq_len'_'$pred_len.log
 done
 done
 for pred_len in 24
@@ -54,7 +54,7 @@ do  python -u run.py \
     --d_ff 512 \
     --top_k 5 \
     --des 'Exp' \
-    --itr 1 \
-    --train_epochs 10 >logs/$model_name'_S_traffic_'$seq_len'_'$pred_len.log
+    --itr 5 \
+    --train_epochs 100 >logs/$model_name'_S_traffic_'$seq_len'_'$pred_len.log
 done
 done
