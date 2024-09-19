@@ -43,7 +43,7 @@ do python -u run.py \
   --seq_len $seq_len \
   --label_len 12 \
   --pred_len $pred_len  \
-  --enc_in 862 \
+  --enc_in 1 \
   --des 'Exp' \
   --itr 5 \
   --train_epochs 100 \
