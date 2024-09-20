@@ -5,9 +5,9 @@ fi
 
 for model_name in Autoformer Informer Transformer
 do 
-for pred_len in 24
-do
 for seq_len in 48
+do
+for pred_len in 24
 do  python -u run.py \
     --task_name long_term_forecast \
     --is_training 1 \
@@ -27,15 +27,9 @@ do  python -u run.py \
     --dec_in 1 \
     --c_out 1 \
     --des 'Exp' \
-    --itr 5 \
+    --itr 10 \
     --train_epochs 100 >logs/$model_name'_S_traffic_'$seq_len'_'$pred_len.log
-done
-done
-
-for pred_len in 24
-do
-for seq_len in 48
-do  python -u run.py \
+python -u run.py \
     --task_name long_term_forecast \
     --is_training 1 \
     --root_path ./data/dataset/ \
@@ -54,7 +48,7 @@ do  python -u run.py \
     --dec_in 862 \
     --c_out 1 \
     --des 'Exp' \
-    --itr 5 \
+    --itr 10 \
     --train_epochs 100 >logs/$model_name'_MS_traffic_'$seq_len'_'$pred_len.log
 done
 done

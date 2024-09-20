@@ -3,6 +3,7 @@ from data.data_provider.data_factory import data_provider
 from exp.exp_basic import Exp_Basic
 from models.Transformer_based import Informer, Autoformer, Transformer, PatchTST, Pyraformer
 from models.Linear_based import DLinear, Linear, NLinear
+from models.CNN_based import TimeMixer, TSMixer,TimesNet
 from models.test import Crossformer
 from utils.tools import EarlyStopping, adjust_learning_rate, visual, test_params_flop
 from utils.metrics import metric
@@ -39,6 +40,9 @@ class Exp_Main(Exp_Basic):
             'Pyraformer': Pyraformer,
             'Crossformer': Crossformer,
             'VanillaRNN': VanillaRNN,
+            'TimeMixer': TimeMixer,
+            'TSMixer': TSMixer,
+            'TimesNet': TimesNet
         }
         # 모델 선택
         model = model_dict[self.args.model].Model(self.args).float()

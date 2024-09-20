@@ -1,9 +1,10 @@
 #!/bin/sh
 model_name=VanillaRNN
-seq_len=48
-pred_len=24
 
-python -u run.py \
+for seq_len in 48
+do
+for pred_len in 24
+do python -u run.py \
   --task_name long_term_forecast \
   --is_training 1 \
   --root_path ./data/dataset \
@@ -22,8 +23,8 @@ python -u run.py \
   --learning_rate 0.001 \
   --rnn_type rnn \
   --des 'Exp' \
-  --itr 5 \
-  --train_epochs 100 >logs/$model_name'_S_Milano_'$seq_len'_'$pred_len.log
+  --itr 1 \
+  --train_epochs 1 >logs/$model_name'_S_Milano_'$seq_len'_'$pred_len.log
 
 python -u run.py \
   --task_name long_term_forecast \
@@ -46,3 +47,5 @@ python -u run.py \
   --des 'Exp' \
   --itr 5 \
   --train_epochs 100 >logs/$model_name'_MS_Milano_'$seq_len'_'$pred_len.log
+done
+done

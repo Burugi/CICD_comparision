@@ -1,8 +1,9 @@
 #!/bin/sh
 model_name=Crossformer
-for pred_len in 24
-do
+
 for seq_len in 48
+do
+for pred_len in 24
 do  python -u run.py \
     --task_name long_term_forecast \
     --is_training 1 \
@@ -26,14 +27,10 @@ do  python -u run.py \
     --top_k 5 \
     --n_heads 2 \
     --des 'Exp' \
-    --itr 5 \
+    --itr 10 \
     --train_epochs 100 >logs/$model_name'_MS_Milano_'$seq_len'_'$pred_len.log
-done
-done
-for pred_len in 24
-do
-for seq_len in 48
-do  python -u run.py \
+
+python -u run.py \
     --task_name long_term_forecast \
     --is_training 1 \
     --root_path ./data/dataset/ \
@@ -56,7 +53,7 @@ do  python -u run.py \
     --top_k 5 \
     --n_heads 2 \
     --des 'Exp' \
-    --itr 5 \
+    --itr 10 \
     --train_epochs 100 >logs/$model_name'_S_Milano_'$seq_len'_'$pred_len.log
 done
 done
