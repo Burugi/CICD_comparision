@@ -23,8 +23,8 @@ do python -u run.py \
   --learning_rate 0.001 \
   --rnn_type rnn \
   --des 'Exp' \
-  --itr 1 \
-  --train_epochs 1 >logs/$model_name'_S_traffic_'$seq_len'_'$pred_len.log
+  --itr 10 \
+  --train_epochs 100 >logs/$model_name'_S_traffic_'$seq_len'_'$pred_len.log
 
 python -u run.py \
   --task_name long_term_forecast \
@@ -45,7 +45,7 @@ python -u run.py \
   --learning_rate 0.001 \
   --rnn_type rnn \
   --des 'Exp' \
-  --itr 5 \
+  --itr 10 \
   --train_epochs 100 >logs/$model_name'_MS_traffic_'$seq_len'_'$pred_len.log
 done
 done
